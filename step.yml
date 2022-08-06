@@ -67,10 +67,10 @@ toolkit:
 
 
 inputs:
-  - INSTALL_RUST_NIGHTLY: false
+  - RUST_USE_RUSTUP_NIGHTLY: false
     opts:
-      title: "Install Rustup Nightly"
-      summary: Installs a nightly version of the toolchain
+      title: "Use Rustup Nightly"
+      summary: Installs and uses a nightly version of the toolchain
       description: |
         If `true`, forces rustup to run at every run and install the most recent version of the nightly toolchain.
       is_expand: true
