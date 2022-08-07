@@ -60,48 +60,63 @@ type_tags:
 #   apt_get:
 #   - name: cmake
 
-
 toolkit:
   bash:
     entry_file: step.sh
 
-
 inputs:
-  - RUST_USE_RUSTUP_NIGHTLY: false
+  - use_rustup_nightly: false
     opts:
-      title: "Use Rustup Nightly"
+      title: Use Rustup Nightly
       summary: Installs and uses a nightly version of the toolchain
       description: |
-        If `true`, forces rustup to run at every run and install the most recent version of the nightly toolchain.
+        If `true`, forces the use of the nightly version of the toolchain.
+      value_options: [true, false]
       is_expand: true
-      is_required: true
-      value_options: [false, true]
-  - RUST_AUTO_UPDATE_TOOLCHAIN: false
+
+  - auto_update_toolchain: false
     opts:
-      title: "Update the Rust Toolchain"
-      summary: Automatically update the Rust Toolchain at every run.
+      title: Update the Rust Toolchain
+      summary: Automatically update the Rust Toolchain on every run.
       description: |
         If `true`, forces the update of the Rust Toolchain.
+      value_options: [true, false]
       is_expand: true
-      is_required: true
-      value_options: [false, true]      
+
+  - cache_level: none
+    opts:
+      title: Set cache level
+      summary: Sets the local folders to be cached.
+      description: |
+        `all` will cache cargo binaries and rustup root folder, `none` won't cache any of the above.
+      value_options: [true, false]
+      is_expand: true
+
+  - show_exported_envs: false
+    opts:
+      title: Show Toolchain versions
+      summary: Shows the version of the Toolchain components at the end of the step.
+      description: |
+        If `true`, prints the exported `$RUSTUP_VERSION`, `$RUSTC_VERSION` and `$CARGO_VERSION` at the end of the step.
+      value_options: [true, false]
+      is_expand: true
 
 outputs:
-  - CURRENT_RUSTUP_VERSION:
+  - RUSTUP_VERSION:
     opts:
-      title: "Current Rust Toolchain version"
+      title: "Current `rustup` version"
       summary: The current Rust Toolchain version
       description: |
         The version returned by the `rustup -V` command.
-  - CURRENT_RUSTC_VERSION:
+  - RUSTC_VERSION:
     opts:
-      title: "Current Rustc version"
+      title: "Current `rustc`` version"
       summary: The current Rustc version
       description: |
         The version returned by the `rustc -V` command.
-  - CURRENT_CARGO_VERSION:
+  - CARGO_VERSION:
     opts:
-      title: "Current Cargo version"
+      title: "Current `cargo` version"
       summary: The current Cargo version
       description: |
         The version returned by the `cargo -V` command.
