@@ -30,6 +30,23 @@ workflows:
             but the step would use the default value specified in the `step.yml`
             file if you would not specify another value.
           run_if: true
+      - script@1:
+          title: Run Rust commands
+          description: |-
+            Run some commands to make sure the toolchain has been installed correctly.
+          inputs:
+          - content: |-
+              #!/usr/bin/env bash
+              # fail if any commands fails
+              set -e
+              # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+              set -o pipefail
+              # debug log
+              set -x
+
+              cargo -V
+              rustc -V
+              rustup -V
 
   # ----------------------------------------------------------------
   # --- workflows to Share this step into a Step Library
