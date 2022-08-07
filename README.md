@@ -1,6 +1,6 @@
 # Rust Toolchain Installer
 
-Downloads and install the Rust Toolchain (either stable or nightly) in the current container and makes it available to the next steps.
+Downloads and installs the Rust Toolchain in the current container and makes it available to the next steps.
 
 ### Useful links 
 
@@ -36,7 +36,7 @@ Downloads and install the Rust Toolchain (either stable or nightly) in the curre
 -----
 ## 🙋 Contributing
 
-[Pull Requests](https://github.com/nick0602/bitrise-step-rustup) and [Issues](https://github.com/nick0602/bitrise-step-rustup/issues) are welcome against this repository.
+[Pull Requests](https://github.com/nick0602/bitrise-step-rustup/pulls) and [Issues](https://github.com/nick0602/bitrise-step-rustup/issues) are welcome against this repository.
 
 For pull requests, work on your changes in a forked repository and use the Bitrise CLI to [run step tests locally](https://devcenter.bitrise.io/bitrise-cli/run-your-first-build/).
 
