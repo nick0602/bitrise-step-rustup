@@ -110,7 +110,7 @@ outputs:
         The version returned by the `rustup -V` command.
   - RUSTC_VERSION:
     opts:
-      title: "Current `rustc`` version"
+      title: "Current `rustc` version"
       summary: The current Rustc version
       description: |
         The version returned by the `rustc -V` command.
