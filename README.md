@@ -1,6 +1,6 @@
 # Rust Toolchain Installer
 
-Downloads and installs the Rust Toolchain in the current container and makes it available to the next steps.
+Unofficial Bitrise step to download and install the Rust Toolchain to make it available in the workflow.
 
 ### Useful links 
 
