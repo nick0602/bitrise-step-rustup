@@ -89,7 +89,7 @@ inputs:
       summary: Sets the local folders to be cached.
       description: |
         `all` will cache cargo binaries and rustup root folder, `none` won't cache any of the above.
-      value_options: [true, false]
+      value_options: [all, none]
       is_expand: true
 
   - show_exported_envs: false
