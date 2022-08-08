@@ -2,13 +2,13 @@
 set -e
 
 # Load input values that have been passed by Bitrise.
-source $BITRISE_STEP_SOURCE_DIR/inputs.sh
+source "${BITRISE_STEP_SOURCE_DIR}"/inputs.sh
 
 # Load required functions in scope to keep step.sh clean.
-source $BITRISE_STEP_SOURCE_DIR/helpers.sh
+source "${BITRISE_STEP_SOURCE_DIR}"/helpers.sh
 
 # Silently source, in case the cache has already restored rustup and/or cargo folders.
-source "$HOME/.cargo/env" &>/dev/null || true
+source "${HOME}/.cargo/env" &>/dev/null || true
 
 # Keep track if it's first install to skip updates after the setup.
 IS_FIRST_INSTALL=false
@@ -22,13 +22,13 @@ if ! command -v rustup &>/dev/null; then
 fi
 
 # Export PATH via envman to make the toolchain available for the next steps.
-envman add --key "PATH" --value "${PATH}:$HOME/.cargo/bin"
+envman add --key "PATH" --value "${PATH}:${HOME}/.cargo/bin"
 
 # Calling set_default_rustup() to ensure the required version of rustc is used, as ~/.rustup/settings.toml might have been restored from cache.
 set_default_rustup
 
 # Update is not performed on first install as the download has just happened.
-if [ "$RUST_AUTO_UPDATE_TOOLCHAIN" = true ] && [ "$IS_FIRST_INSTALL" = false ]; then
+if [ "${RUST_AUTO_UPDATE_TOOLCHAIN}" = true ] && [ "${IS_FIRST_INSTALL}" = false ]; then
     update_rustup
 fi
 
@@ -39,7 +39,7 @@ export_rust_envs
 append_to_bitrise_cache
 
 # Show current versions.
-if [ "$RUST_SHOW_ENVS" = true ]; then
+if [ "${RUST_SHOW_ENVS}" = true ]; then
     print_rust_envs
 fi
 

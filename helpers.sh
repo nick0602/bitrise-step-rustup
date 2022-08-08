@@ -12,7 +12,7 @@ update_rustup() {
     rm -rf ~/.cargo/bin/rustfmt
     rm -rf ~/.cargo/bin/cargo-fmt
 
-    if [ "$RUST_USE_RUSTUP_NIGHTLY" = true ]; then
+    if [ "${RUST_USE_RUSTUP_NIGHTLY}" = true ]; then
         envman run rustup update nightly
     else
         envman run rustup update stable
@@ -20,7 +20,7 @@ update_rustup() {
 }
 
 set_default_rustup() {
-    if [ "$RUST_USE_RUSTUP_NIGHTLY" = true ]; then
+    if [ "${RUST_USE_RUSTUP_NIGHTLY}" = true ]; then
         envman run rustup default nightly
     else
         envman run rustup default stable
@@ -35,9 +35,9 @@ export_rust_envs() {
 
 print_rust_envs() {
     printf "\n\nExported ENV vars:\n"
-    envman run bash -c 'printf "RUSTUP_VERSION: $RUSTUP_VERSION"'
-    envman run bash -c 'printf "RUSTC_VERSION: $RUSTC_VERSION"'
-    envman run bash -c 'printf "CARGO_VERSION: $CARGO_VERSION"'
+    envman run bash -c printf "RUSTUP_VERSION: ${RUSTUP_VERSION}"
+    envman run bash -c printf "RUSTC_VERSION: ${RUSTC_VERSION}"
+    envman run bash -c printf "CARGO_VERSION: ${CARGO_VERSION}"
 }
 
 # Don't forget that $BITRISE_CACHE_INCLUDE_PATHS separates paths with `\n`.
@@ -46,8 +46,8 @@ append_to_bitrise_cache() {
 
     case $RUST_CACHE_LEVEL in
     'all')
-        printf '\n\nAdding ~/.rustup, ~/.cargo/bin and ~/.cargo/env to $BITRISE_CACHE_INCLUDE_PATHS.\n'
-
+        printf "\n\nAdding ~/.rustup, ~/.cargo/bin and ~/.cargo/env to \$BITRISE_CACHE_INCLUDE_PATHS.\n"
+        
         ADDITIONAL_CACHE_PATHS+="${HOME}/.rustup"
         ADDITIONAL_CACHE_PATHS+=$'\n'
         ADDITIONAL_CACHE_PATHS+="${HOME}/.cargo/bin"
