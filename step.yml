@@ -8,11 +8,11 @@
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
 
 title: |-
-  Rustup Install
+  Rust Install
 summary: |
-  Install rustup toolchain
+  Install the Rust Toolchain.
 description: |
-  This step installs the required components to build and run Rust projects
+  Install the required components to build and run Rust projects in the current workflow.
 website: https://github.com/nick0602/bitrise-step-rustup/
 source_code_url: https://github.com/nick0602/bitrise-step-rustup/
 support_url: https://github.com/nick0602/bitrise-step-rustup/issues
