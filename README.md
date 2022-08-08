@@ -1,4 +1,6 @@
-# Rust Toolchain Installer
+# Rust Toolchain Installer 
+
+[![Build Status](https://app.bitrise.io/app/5c455310b4a85e12/status.svg?token=oXAGATua_X68xsVO8_KwJA&branch=main)](https://app.bitrise.io/app/5c455310b4a85e12)
 
 Unofficial Bitrise step to download and install the Rust Toolchain to make it available in the workflow.
 
