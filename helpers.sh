@@ -28,16 +28,16 @@ set_default_rustup() {
 }
 
 export_rust_envs() {
-    envman run rustup -V | envman add --key RUSTUP_VERSION
-    envman run rustc -V | envman add --key RUSTC_VERSION
-    envman run cargo -V | envman add --key CARGO_VERSION
+    envman run rustup -V | envman add --key "RUSTUP_VERSION"
+    envman run rustc -V | envman add --key "RUSTC_VERSION"
+    envman run cargo -V | envman add --key "CARGO_VERSION"
 }
 
 print_rust_envs() {
     printf "\n\nExported ENV vars:\n"
-    envman run bash -c printf "RUSTUP_VERSION: ${RUSTUP_VERSION}"
-    envman run bash -c printf "RUSTC_VERSION: ${RUSTC_VERSION}"
-    envman run bash -c printf "CARGO_VERSION: ${CARGO_VERSION}"
+    envman run bash -c 'printf "RUSTUP_VERSION: ${RUSTUP_VERSION}"'
+    envman run bash -c 'printf "RUSTC_VERSION: ${RUSTC_VERSION}"'
+    envman run bash -c 'printf "CARGO_VERSION: ${CARGO_VERSION}"'
 }
 
 # Don't forget that $BITRISE_CACHE_INCLUDE_PATHS separates paths with `\n`.
