@@ -65,22 +65,22 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - use_rustup_nightly: false
+  - use_rustup_nightly: "false"
     opts:
       title: Use Rustup Nightly
       summary: Installs and uses a nightly version of the toolchain
       description: |
         If `true`, forces the use of the nightly version of the toolchain.
-      value_options: [true, false]
+      value_options: ["true", "false"]
       is_expand: true
 
-  - auto_update_toolchain: false
+  - auto_update_toolchain: "false"
     opts:
       title: Update the Rust Toolchain
       summary: Automatically update the Rust Toolchain on every run.
       description: |
         If `true`, forces the update of the Rust Toolchain.
-      value_options: [true, false]
+      value_options: ["true", "false"]
       is_expand: true
 
   - cache_level: none
@@ -92,13 +92,13 @@ inputs:
       value_options: [all, none]
       is_expand: true
 
-  - show_exported_envs: false
+  - show_exported_envs: "false"
     opts:
       title: Show Toolchain versions
       summary: Shows the version of the Toolchain components at the end of the step.
       description: |
         If `true`, prints the exported `$RUSTUP_VERSION`, `$RUSTC_VERSION` and `$CARGO_VERSION` at the end of the step.
-      value_options: [true, false]
+      value_options: ["true", "false"]
       is_expand: true
 
 outputs:
