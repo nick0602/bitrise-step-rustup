@@ -8,7 +8,12 @@ source "${BITRISE_STEP_SOURCE_DIR}"/inputs.sh
 source "${BITRISE_STEP_SOURCE_DIR}"/helpers.sh
 
 # Silently source, in case the cache has already restored rustup and/or cargo folders.
-source "${HOME}/.cargo/env" &>/dev/null || true
+CARGO_ENV=${HOME}/.cargo/env
+
+if [[ -e $CARGO_ENV ]]; then 
+    # shellcheck source=/dev/null
+    source "${CARGO_ENV}"
+fi
 
 # Keep track if it's first install to skip updates after the setup.
 IS_FIRST_INSTALL=false
