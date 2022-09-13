@@ -65,7 +65,7 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - rust_version:
+  - rust_version: "stable"
     opts:
       title: Rust version
       summary: Installs and uses the specified Rust version.
