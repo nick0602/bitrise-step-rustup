@@ -78,7 +78,7 @@ inputs:
       title: Update the Rust Toolchain
       summary: Automatically update the Rust Toolchain on every run.
       description: |
-        If `true`, forces the update of the Rust Toolchain.
+        If `true`, forces the update of the Rust Toolchain. Valid for `stable` and `nightly` versions only.
       value_options: ["true", "false"]
       is_expand: true
 

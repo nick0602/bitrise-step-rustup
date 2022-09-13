@@ -19,8 +19,8 @@ Unofficial Bitrise step to download and install the Rust Toolchain to make it av
 
 | Input Key | Description | Values | Default |
 | --- | --- | --- | --- |
-| `use_rustup_nightly` | If `true`, makes the Rust Nightly Toolchain as default toolchain. | `true`, `false` | `false` |
-| `auto_update_toolchain` | If `true`, auto updates the Rust Toolchain on every run.  | `true`, `false` | `false` |
+| `rust_version` | Sets the default toolchain. If blank, defaults to `stable`. | `stable`, `nightly`, [...] | `stable` |
+| `auto_update_toolchain` | If `true`, auto updates the Rust Toolchain on every run (only on `stable`/`nightly`).  | `true`, `false` | `false` |
 | `cache_level` | If set to `all`, appends the `cargo` and `rustup` main folders to Bitrise `$BITRISE_CACHE_INCLUDE_PATHS` env var that will be picked up by the `Cache:Push` step later on (if present). This speeds up the entire step quite a lot after the first invocation. | `all`, `none` | `none` |
 | `show_exported_envs` | If `true`, shows the exported envs with the `rustc`, `cargo` and `rustup` versions at the end of the step. | `true`, `false` | `false` |
 </details>
