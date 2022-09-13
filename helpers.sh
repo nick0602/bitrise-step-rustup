@@ -12,19 +12,11 @@ update_rustup() {
     rm -rf ~/.cargo/bin/rustfmt
     rm -rf ~/.cargo/bin/cargo-fmt
 
-    if [ "${RUST_USE_RUSTUP_NIGHTLY}" = true ]; then
-        envman run rustup update nightly
-    else
-        envman run rustup update stable
-    fi
+    envman run rustup update "${RUST_VERSION}"
 }
 
 set_default_rustup() {
-    if [ "${RUST_USE_RUSTUP_NIGHTLY}" = true ]; then
-        envman run rustup default nightly
-    else
-        envman run rustup default stable
-    fi
+    envman run rustup default "${RUST_VERSION}"
 }
 
 export_rust_envs() {

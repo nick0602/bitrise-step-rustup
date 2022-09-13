@@ -10,7 +10,7 @@ source "${BITRISE_STEP_SOURCE_DIR}"/helpers.sh
 # Silently source, in case the cache has already restored rustup and/or cargo folders.
 CARGO_ENV=${HOME}/.cargo/env
 
-if [[ -e $CARGO_ENV ]]; then 
+if [[ -e $CARGO_ENV ]]; then
     # shellcheck source=/dev/null
     source "${CARGO_ENV}"
 fi
@@ -32,8 +32,8 @@ envman add --key "PATH" --value "${PATH}:${HOME}/.cargo/bin"
 # Calling set_default_rustup() to ensure the required version of rustc is used, as ~/.rustup/settings.toml might have been restored from cache.
 set_default_rustup
 
-# Update is not performed on first install as the download has just happened.
-if [ "${RUST_AUTO_UPDATE_TOOLCHAIN}" = true ] && [ "${IS_FIRST_INSTALL}" = false ]; then
+# Update is not performed on first install as the download has just happened. Auto update is also applied only on stable or nightly versions.
+if [[ "${RUST_AUTO_UPDATE_TOOLCHAIN}" = true && "${IS_FIRST_INSTALL}" = false && ("${RUST_VERSION}" = "stable" || "${RUST_VERSION}" = "nightly") ]]; then
     update_rustup
 fi
 

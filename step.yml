@@ -65,13 +65,12 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - use_rustup_nightly: "false"
+  - rust_version:
     opts:
-      title: Use Rustup Nightly
-      summary: Installs and uses a nightly version of the toolchain
+      title: Rust version
+      summary: Installs and uses the specified Rust version.
       description: |
-        If `true`, forces the use of the nightly version of the toolchain.
-      value_options: ["true", "false"]
+        Specify a Rust version. If blank, defaults to the current `stable` version.
       is_expand: true
 
   - auto_update_toolchain: "false"
