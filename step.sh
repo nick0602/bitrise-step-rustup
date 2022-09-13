@@ -29,12 +29,14 @@ fi
 # Export PATH via envman to make the toolchain available for the next steps.
 envman add --key "PATH" --value "${PATH}:${HOME}/.cargo/bin"
 
-# Calling set_default_rustup() to ensure the required version of rustc is used, as ~/.rustup/settings.toml might have been restored from cache.
-set_default_rustup
+if [ "${IS_FIRST_INSTALL}" = false ]; then
+    # Calling set_default_rustup() to ensure the required version of rustc is used, as ~/.rustup/settings.toml might have been restored from cache.
+    set_default_rustup
 
-# Update is not performed on first install as the download has just happened. Auto update is also applied only on stable or nightly versions.
-if [[ "${RUST_AUTO_UPDATE_TOOLCHAIN}" = true && "${IS_FIRST_INSTALL}" = false && ("${RUST_VERSION}" = "stable" || "${RUST_VERSION}" = "nightly") ]]; then
-    update_rustup
+    # Auto update is applied only on stable or nightly versions.
+    if [[ "${RUST_AUTO_UPDATE_TOOLCHAIN}" = true && ("${RUST_VERSION}" = "stable" || "${RUST_VERSION}" = "nightly") ]]; then
+        update_rustup
+    fi
 fi
 
 # Use envman to add versions as ENV.
