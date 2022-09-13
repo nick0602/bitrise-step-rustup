@@ -3,7 +3,7 @@
 # This file contains the main bash functions used in step.sh.
 
 install_rustup() {
-    curl https://sh.rustup.rs -sSf | sh -s -- -y
+    curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain "${RUST_VERSION}"
 }
 
 update_rustup() {
