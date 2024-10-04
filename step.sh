@@ -24,6 +24,9 @@ if ! command -v rustup &>/dev/null; then
 
     printf 'No Rust Toolchain found\n\n'
     install_rustup
+
+    # Reload shell environment.
+    source "${CARGO_ENV}"
 fi
 
 # Export PATH via envman to make the toolchain available for the next steps.
